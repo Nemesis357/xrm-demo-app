@@ -1,0 +1,11 @@
+<h2>Posts module</h2>
+
+<div *ngIf="posts">
+    <mat-card *ngFor="let post of posts">
+        <mat-card-title (click)="loadPost(post)">{{post.id}} - {{post.title}}</mat-card-title>
+        <mat-card-content 
+            appAdvHighlight 
+            highlightColor="green"
+        >{{post.body}}</mat-card-content>
+    </mat-card>
+</div>

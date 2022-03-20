@@ -1,0 +1,7 @@
+<mat-card *ngIf="post">
+    <mat-card-title>{{post.id}} - {{post.title}}</mat-card-title>
+    <mat-card-content 
+        appAdvHighlight 
+        highlightColor="green"
+    >{{post.body}}</mat-card-content>
+</mat-card>
