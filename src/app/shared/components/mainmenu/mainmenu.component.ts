@@ -33,10 +33,64 @@ const MENU_NODES: MenuNode[] = [
             name: 'Posts Page',
             route: '/posts'
           }, 
-          {name: 'Post 1'},
-          {name: 'Post 2'},
-          {name: 'Post 3'},
-          {name: 'Post 4'}
+          {
+            name: 'Post 1',
+            route: '/posts/1'
+          },
+          {
+            name: 'Post 2',
+            route: '/posts/2'
+          },
+          {
+            name: 'Post 3',
+            route: '/posts/3'
+          },
+          {
+            name: 'Post 4',
+            route: '/posts/4'
+          },
+          {
+            name: 'More Posts',
+            children: [
+              {
+                name: 'Post 5',
+                route: '/posts/5'
+              },
+              {
+                name: 'Post 6',
+                route: '/posts/6'
+              },
+              {
+                name: 'Post 7',
+                route: '/posts/7'
+              },
+              {
+                name: 'Post 8',
+                route: '/posts/8'
+              },
+              {
+                name: 'Even More Posts',
+                children: [
+                  {
+                    name: 'Post 9',
+                    route: '/posts/9'
+                  },
+                  {
+                    name: 'Post 10',
+                    route: '/posts/10'
+                  },
+                  {
+                    name: 'Post 11',
+                    route: '/posts/11'
+                  },
+                  {
+                    name: 'Post 12',
+                    route: '/posts/12'
+                  },  
+                ]
+              }
+            ]
+          }
         ],
       },
     ],

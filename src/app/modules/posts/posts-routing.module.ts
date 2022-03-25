@@ -5,6 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { PostsComponent } from "./posts.component";
 import {MatCardModule} from '@angular/material/card';
 import { PostComponent } from './components/post/post.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { CommentsComponent } from 'src/app/shared/components/comments/comments.component';
 
 const routes: Routes = [
     { 
@@ -20,11 +23,14 @@ const routes: Routes = [
   @NgModule({
     declarations: [
         PostsComponent,
-        PostComponent
+        PostComponent,
+        CommentsComponent,
     ],
     imports: [
         CommonModule,
         MatCardModule,
+        MatButtonModule,
+        MatIconModule,
         RouterModule.forChild(routes)
     ],
     exports: [RouterModule]

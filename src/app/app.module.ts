@@ -15,13 +15,20 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogComponent } from './shared/components/dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
+import { RandomPostsComponent } from './modules/random-posts/random-posts.component';
+import { DataService } from './modules/posts/services/data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainmenuComponent,
     ToolbarComponent,
-    ExpansionPanelComponent
+    ExpansionPanelComponent,
+    DialogComponent,
+    RandomPostsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,12 +39,16 @@ import { HttpClientModule } from '@angular/common/http';
     // Material
     MatSidenavModule,
     MatToolbarModule,
+    MatCardModule,
     MatIconModule,
     MatButtonModule,
     MatTreeModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    DataService 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

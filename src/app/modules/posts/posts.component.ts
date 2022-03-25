@@ -10,9 +10,15 @@ import { DataService } from './services/data.service';
 })
 export class PostsComponent implements OnInit {
   posts: Post[] | undefined;
-  constructor( private dataService: DataService, private router: Router ) { }
+  constructor( public dataService: DataService, public router: Router ) { }
 
   ngOnInit(): void {
+    console.log('%c *** PostsComponent ngOnInit ***', 'color:#bada55', );
+    
+    this.loadPostData();
+  }
+
+  loadPostData(): void {
     this.dataService.getPosts().subscribe(response  => {
       this.posts = response.splice(0, 10);
     })

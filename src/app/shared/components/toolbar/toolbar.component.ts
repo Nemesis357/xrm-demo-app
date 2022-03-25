@@ -13,7 +13,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   toggleMainMenuHandler(): void {
-    console.log('%c *-*-* toggleMainMenuHandler *-*-*', 'color:#bada55;', );
     this.toggleMainMenu.emit();
   }
 

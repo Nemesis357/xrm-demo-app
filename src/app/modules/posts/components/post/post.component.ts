@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../../interfaces/post';
 import { DataService } from '../../services/data.service';
 
@@ -10,15 +10,20 @@ import { DataService } from '../../services/data.service';
 })
 export class PostComponent implements OnInit {
   post: Post | undefined;
-  constructor( private route: ActivatedRoute, private dataService: DataService ) { }
+  constructor( 
+    private route: ActivatedRoute, 
+    private dataService: DataService,
+    private router: Router ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      // this.postId = params["id"];
       this.dataService.getPost(params["id"]).subscribe(result => {
         this.post = result;
       })
     });
   }
 
+  backToPosts(): void {
+    this.router.navigate(['/posts']);
+  }
 }

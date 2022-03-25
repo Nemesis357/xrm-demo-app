@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/shared/services/data.service';
+import { Post } from '../posts/interfaces/post';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  posts!: Post[];
 
-  constructor() { }
+  constructor( private dataService: DataService ) { }
 
   ngOnInit(): void {
+    console.log('%c *** HomeComponent -ngOnInit- ***', 'color:#bada55', this.posts);
+    this.dataService.getPosts().subscribe(result => {
+      this.posts = result;
+    })
   }
 
 }

@@ -6,7 +6,7 @@
         mat-icon-button 
         routerLink={{node.route}}>
         {{node.name}}
-    </button>
+      </button>
       
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
@@ -18,7 +18,7 @@
         <mat-icon class="mat-icon-rtl-mirror">
           {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
         </mat-icon>
+        {{node.name}}
       </button>
-      {{node.name}}
     </mat-tree-node>
 </mat-tree>
