@@ -1,5 +1,10 @@
 <h1 mat-dialog-title>DEMO MODAL</h1>
+<hr>
 <div mat-dialog-content>
+    <div *ngIf="user">
+        <h2>{{user.name}}</h2>
+        <h3>{{user.email}}</h3>
+    </div>
     
     <div *ngIf="posts" class="posts-section">
         <mat-card *ngFor="let post of posts" class="posts-wrapper">

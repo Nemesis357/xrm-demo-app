@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 import { User } from './interfaces/user';
 import { DataService } from './services/data.service';
@@ -17,14 +18,19 @@ export class UsersComponent implements OnInit {
 
   constructor( 
     private dataService: DataService,
-    public dialog: MatDialog ) { }
+    public dialog: MatDialog,
+    private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
+    let userId      : number = JSON.parse(this.route.snapshot.paramMap.get('userId') || '{}'),
+        userIdRandom: number = JSON.parse(this.route.snapshot.paramMap.get('randomUserId') || '{}');
+    if ( userId !== undefined && typeof userId === 'number' ) {
+      this.openDialog(userId);
 
-    console.log('%c *** USERS >>> ngOnInit <<< --- usersData --- ***', 'color:#bada55', this.usersData);
+      this.openDialog(userIdRandom);
+    }
 
     this.dataService.getUsers().subscribe(result => {
-      console.log('%c *** ngOnInit ***', 'color:#bada55', result);
       this.usersData = result;
     })
   }

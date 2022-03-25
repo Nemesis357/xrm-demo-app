@@ -20,11 +20,19 @@ export class PostsComponent implements OnInit {
 
   loadPostData(): void {
     this.dataService.getPosts().subscribe(response  => {
-      this.posts = response.splice(0, 10);
+      this.posts = response; //.splice(0, 10);
     })
   }
 
   loadPost(post: Post): void {
     this.router.navigate(['/posts/' + post.id ]);
+  }
+
+  goToUserProfile(post: Post): void {
+    let payload = {
+      userId: post.userId,
+      randomUserId: Math.floor(1 * 10)
+    }
+    this.router.navigate(['/users', payload]);
   }
 }
