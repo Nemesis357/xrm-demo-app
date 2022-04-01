@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,6 +21,7 @@ import { HomeModule } from './modules/home/home.module';
 import { MatTreeModule } from '@angular/material/tree';
 import { UiModule } from './shared/modules/ui/ui.module';
 import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [

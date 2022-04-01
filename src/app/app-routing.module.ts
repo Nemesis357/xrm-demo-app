@@ -5,7 +5,6 @@ import { CustomRouteReuseStrategy } from 'src/utils/custom-route-reuse-strategy.
 
 // Modules
 import { HomeComponent } from './modules/home/home.component';
-import { RouteGuardGuard } from './shared/guards/route-guard.guard';
 import { CustomRouter } from './shared/modules/custom-router-module/custom-router.component';
 
 const routes: Routes = [
