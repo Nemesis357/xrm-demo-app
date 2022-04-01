@@ -1,5 +1,3 @@
-<!-- <app-expansion-panel></app-expansion-panel> -->
-
 <app-toolbar (toggleMainMenu)="drawer.toggle()"></app-toolbar>
 
 <mat-drawer-container class="drawer-container" autosize>
@@ -8,7 +6,18 @@
   </mat-drawer>
 
   <div class="drawer-sidenav-content">
-    <router-outlet></router-outlet>
-  </div>
 
+    <iframe 
+      *ngFor="let iframe of iframeList"
+      [attr.src]="iframe.src | safeUrl" 
+      [attr.id]="iframe.id"
+      width="550px"
+      height="500px"
+      frameborder="0"
+    ></iframe>
+    
+    <router-outlet></router-outlet>
+    
+  </div>
+  
 </mat-drawer-container>

@@ -5,48 +5,47 @@ import { CustomRouteReuseStrategy } from 'src/utils/custom-route-reuse-strategy.
 
 // Modules
 import { HomeComponent } from './modules/home/home.component';
+import { RouteGuardGuard } from './shared/guards/route-guard.guard';
+import { CustomRouter } from './shared/modules/custom-router-module/custom-router.component';
 
 const routes: Routes = [
   { 
     path: 'posts', 
-    loadChildren: () => import('./modules/posts/posts-routing.module').then(m => m.PostsRoutingModule)
+    loadChildren: () => import('./modules/posts/posts-routing.module').then(m => m.PostsRoutingModule),
+    data: {
+      saveComponent: true
+    }
   },
   { 
     path: 'random-posts', 
-    loadChildren: () => import('./modules/random-posts/random-posts.module').then(m => m.RandomPostsModule),
+    loadChildren: () => import('./modules/random-posts/random-posts.module').then(m => m.RandomPostsModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule),
+    // outlet: "users",
+    // canActivate: [RouteGuardGuard],
     data: {
       saveComponent: true
     }
   },
   {
-    path: 'users',
-    loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule),
-    data: {
-      saveComponent: true,
-      key: "users_module"
-    }
+    path: "home",
+    component: HomeComponent
   },
   {
     path: '',
-    component: HomeComponent,
-    data: {
-      saveComponent: true,
-      key: "home_module"
-    }
+    component: HomeComponent
   },
   {
     path: '**',
-    component: HomeComponent,
-    data: {
-      saveComponent: true,
-      key: "home_module"
-    }
+    component: HomeComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [CustomRouter.forRoot(routes)],
+  exports: [CustomRouter],
   providers: [{
       provide: RouteReuseStrategy,
       useClass: CustomRouteReuseStrategy

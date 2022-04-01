@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IframeService } from 'src/app/shared/services/iframe.service';
 import { PostsComponent } from '../posts/posts.component';
 import { DataService } from '../posts/services/data.service';
 
@@ -10,8 +11,12 @@ import { DataService } from '../posts/services/data.service';
 })
 export class RandomPostsComponent extends PostsComponent implements OnInit {
   
-  constructor(private data: DataService, private rt: Router) {
-    super(data, rt);
+  constructor(
+    private data: DataService, 
+    private rt: Router, 
+    private ro: ActivatedRoute,
+    private ifs: IframeService) {
+    super(data, rt, ro, ifs);
   }
 
   ngOnInit(): void {

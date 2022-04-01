@@ -1,70 +1,73 @@
-<h2>Users panel</h2>
+<div *ngIf="hideComponent">
 
-<button 
-    mat-raised-button
-    color="primary"
-    class="table-data-btn"
-    (click)="showData()"
->Show Data</button>
+    <h2>Users panel</h2>
 
-<div class="table-container">
-    <ngx-datatable 
-        [rows]="usersData" 
-        class="material container striped"
-        [headerHeight]="50"
-        [footerHeight]="50"
-        [rowHeight]="50"
-    >
-        <ngx-datatable-column name="#" [flexGrow]="0.5">
-            <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
-                {{(rowIndex + 1)}}
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Name" [flexGrow]="2">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-                <!-- {{ row?.name | titlecase }} -->
+    <button 
+        mat-raised-button
+        color="primary"
+        class="table-data-btn"
+        (click)="showData()"
+    >Show Data</button>
 
-                <span
-                    title="Double click to edit"
-                    (dblclick)="editing[row.id + '-name'] = true"
-                    *ngIf="!editing[row.id + '-name']"
-                >
-                    {{ row?.name | titlecase }}
-                </span>
-                <input
-                    autofocus
-                    (blur)="updateValue($event, 'name', row.id)"
-                    *ngIf="editing[row.id + '-name']"
-                    type="text"
-                    [value]="row?.name"
-                />
+    <div class="table-container">
+        <ngx-datatable 
+            [rows]="usersData" 
+            class="material container striped"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="50"
+        >
+            <ngx-datatable-column name="#" [flexGrow]="0.5">
+                <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                    {{(rowIndex + 1)}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Name" [flexGrow]="2">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <!-- {{ row?.name | titlecase }} -->
 
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Username" [flexGrow]="2">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-                {{row?.username}}
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Email" [flexGrow]="2">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-                {{row?.email}}
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Phone" [flexGrow]="2">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-                {{row?.phone}}
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Email" [flexGrow]="2">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-                {{row?.email}}
-            </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Trigger" [flexGrow]="2">
-            <ng-template let-row="row" ngx-datatable-cell-template>
-                <button mat-raised-button (click)="openDialog(row.id)">OPEN</button>
-            </ng-template>
-        </ngx-datatable-column>
-    </ngx-datatable>
+                    <span
+                        title="Double click to edit"
+                        (dblclick)="editing[row.id + '-name'] = true"
+                        *ngIf="!editing[row.id + '-name']"
+                    >
+                        {{ row?.name | titlecase }}
+                    </span>
+                    <input
+                        autofocus
+                        (blur)="updateValue($event, 'name', row.id)"
+                        *ngIf="editing[row.id + '-name']"
+                        type="text"
+                        [value]="row?.name"
+                    />
+
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Username" [flexGrow]="2">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.username}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Email" [flexGrow]="2">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.email}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Phone" [flexGrow]="2">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.phone}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Email" [flexGrow]="2">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.email}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Trigger" [flexGrow]="2">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    <button mat-raised-button (click)="openDialog(row.id)">OPEN</button>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
 </div>
