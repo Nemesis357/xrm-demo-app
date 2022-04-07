@@ -33,5 +33,20 @@ export class AppComponent implements OnInit {
     this.iframeList = this.iframeService.getIframes();
   }
 
-  
+  onActivate(event: any) {
+    
+    if ( event && event.route?.snapshot?.data?.independentComponent ) {
+      console.log('%c *** SNAP ***', 'color:#bada55', event.route?.snapshot?.data?.independentComponent);
+      
+    }
+  }
+  onDeactivate(event: Event) {
+    console.log('%c *** onDeactivate ***', 'color:yellow', event);
+  }
+  onAttach(event: any) {
+    console.log('%c *** onAttach ***', 'color:yellow', event);
+  }
+  onDetach(event: any) {
+    console.log('%c *** onDetach ***', 'color:yellow', event);
+  }
 }

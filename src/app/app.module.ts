@@ -22,6 +22,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { UiModule } from './shared/modules/ui/ui.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BrowserModule } from '@angular/platform-browser';
     HomeModule,
     UiModule,
     MatTreeModule,
+    SharedModule,
 
     // Material
     MatSidenavModule,

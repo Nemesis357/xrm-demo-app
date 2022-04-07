@@ -22,6 +22,7 @@
     "@angular/router": "~12.2.0",
     "@swimlane/ngx-datatable": "^20.0.0",
     "@uirouter/angularjs": "^1.0.30",
+    "ng-single-iframe-upgrade": "^0.0.23",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

@@ -16,7 +16,21 @@
       frameborder="0"
     ></iframe> -->
     
-    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet> -->
+
+    <!-- <app-router-outlet
+    (activate)='onActivate($event)'
+    (deactivate)='onDeactivate($event)'
+    (attach)='onAttach($event)'
+    (detach)='onDetach($event)'
+    ></app-router-outlet> -->
+
+    <app-router-outlet
+      (activate)='onActivate($event)'
+      (deactivate)='onDeactivate($event)'
+      (attach)='onAttach($event)'
+      (detach)='onDetach($event)'
+    ></app-router-outlet>
     
   </div>
   

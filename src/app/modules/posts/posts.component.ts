@@ -24,8 +24,7 @@ export class PostsComponent implements OnInit {
     
     this.loadPostData();
 
-
-    if ( this.route.snapshot.data.saveComponent ) {
+    if ( this.route.snapshot.data.independentComponent ) {
       // this.hideComponent = false;
       let payload : Iframe = {
         id: "postsIframe838747",

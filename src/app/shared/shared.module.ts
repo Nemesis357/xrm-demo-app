@@ -4,10 +4,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RandomContentComponent } from './components/random-content/random-content.component';
+import { RouterOutlet } from './directives/router-outlet.directive';
 
 @NgModule({
   declarations: [
     RandomContentComponent,
+    RouterOutlet,
   ],
   imports: [
     MatToolbarModule,
@@ -16,7 +18,8 @@ import { RandomContentComponent } from './components/random-content/random-conte
     MatButtonModule
   ],
   exports: [
-    RandomContentComponent
+    RandomContentComponent,
+    RouterOutlet
   ]
 })
 export class SharedModule { }

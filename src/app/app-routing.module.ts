@@ -6,13 +6,19 @@ import { CustomRouteReuseStrategy } from 'src/utils/custom-route-reuse-strategy.
 // Modules
 import { HomeComponent } from './modules/home/home.component';
 import { CustomRouter } from './shared/modules/custom-router-module/custom-router.component';
+import { ResolverService } from './shared/services/resolver.service';
 
 const routes: Routes = [
   { 
     path: 'posts', 
     loadChildren: () => import('./modules/posts/posts-routing.module').then(m => m.PostsRoutingModule),
     data: {
-      saveComponent: true
+      independentComponent: true,
+      frame: {
+        id: "postsIframe838747",
+        name: "postsIframe",
+        src: "/posts"
+      }
     }
   },
   { 
@@ -23,14 +29,22 @@ const routes: Routes = [
     path: 'users',
     loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule),
     // outlet: "users",
-    // canActivate: [RouteGuardGuard],
     data: {
-      saveComponent: true
+      independentComponent: true,
+      frame: {
+        id: "usersIframe838747",
+        name: "usersIframe",
+        src: "/users"
+      }
     }
   },
   {
     path: "home",
-    component: HomeComponent
+    component: HomeComponent,
+    // resolve: { photos: ResolverService },
+    // data: {
+    //   independentComponent: true
+    // }
   },
   {
     path: '',
